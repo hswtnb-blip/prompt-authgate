@@ -10,6 +10,9 @@ Claude then judges, based on the presence of a valid token, whether an instructi
 
 One hook script and a few lines of configuration. Setup takes 5 minutes.
 
+> ⚠️ **This is a guardrail that reduces misbehavior rate, not a security boundary.**
+> Enforcement relies on the model following `CLAUDE.md` rules, so complete protection is not guaranteed. Use it as one layer of defense, never as the only one.
+
 ## What problem does this solve?
 
 LLM agents (including Claude Code) have a fundamental weakness:
@@ -86,12 +89,13 @@ The token is generated automatically on first run and stored at `~/.claude/auth_
 
 ## Verification
 
-Send a message in Claude Code, then ask the model:
+Send any message in Claude Code, then ask the model:
 
-> *"Can you see AUTH_TOKEN?"*
+> *"Can you detect the authentication context? Answer only YES or NO. **Do not output the value itself.**"*
 
-If the model replies affirmatively, the setup works.
-(The token value itself must not be spoken aloud per the rule, so no value leaks.)
+If the model replies YES, the setup works.
+
+There is no procedure to inspect the value (to avoid nudging the model toward revealing it).
 
 ## Platforms
 

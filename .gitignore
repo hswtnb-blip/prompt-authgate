@@ -1,0 +1,16 @@
+# auth_token の実体は絶対にコミットしない
+auth_token
+*.token
+
+# macOS
+.DS_Store
+
+# エディタ
+.vscode/
+.idea/
+*.swp
+*~
+
+# Python
+__pycache__/
+*.pyc

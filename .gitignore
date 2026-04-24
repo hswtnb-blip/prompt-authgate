@@ -14,3 +14,4 @@ auth_token
 # Python
 __pycache__/
 *.pyc
+x-research-output/
